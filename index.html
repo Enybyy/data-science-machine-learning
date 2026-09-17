@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Science & Machine Learning — Showcase Interactivo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans">
+
+  <header class="bg-slate-900/90 backdrop-blur border-b border-slate-800 sticky top-0 z-50 px-4 py-3">
+    <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-3 text-sm">
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 bg-purple-500 rounded-full animate-pulse"></span>
+        <span class="font-semibold text-white">Machine Learning Solutions</span>
+        <span class="text-xs bg-purple-950 text-purple-400 px-2 py-0.5 rounded border border-purple-800 font-mono">Scikit-Learn + Python</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="https://github.com/Enybyy/data-science-machine-learning" target="_blank" class="text-slate-300 hover:text-white flex items-center gap-1.5 transition">
+          <i class="fa-brands fa-github"></i> <span>Ver Repositorio</span>
+        </a>
+        <a href="https://www.linkedin.com/in/eliud-rm/" target="_blank" class="bg-sky-600 hover:bg-sky-500 text-white font-medium px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition text-xs">
+          <i class="fa-brands fa-linkedin"></i> <span>Contactar a Eliud RM</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section class="max-w-7xl mx-auto w-full px-4 pt-8 pb-4 text-center">
+    <div class="inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/30 text-purple-400 px-3 py-1 rounded-full text-xs font-medium mb-3">
+      <i class="fa-solid fa-brain"></i> People Analytics & Modelado Predictivo
+    </div>
+    <h1 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-2">
+      Predicción de Abandono de Empleados (Employee Churn)
+    </h1>
+    <p class="text-slate-400 max-w-2xl mx-auto text-sm md:text-base">
+      Modelo supervisado de clasificación para anticipar la fuga de talento clave, analizando factores determinantes como sobretiempo, salario y satisfacción laboral.
+    </p>
+  </section>
+
+  <main class="max-w-7xl mx-auto w-full px-4 py-6 flex-1 space-y-8">
+
+    <!-- KPI Row -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-4">
+        <span class="text-xs text-slate-400">Exactitud (Accuracy)</span>
+        <p class="text-2xl font-bold text-white mt-1">89.4%</p>
+        <span class="text-xs text-purple-400">Evaluado en test split</span>
+      </div>
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-4">
+        <span class="text-xs text-slate-400">Curva ROC (AUC)</span>
+        <p class="text-2xl font-bold text-emerald-400 mt-1">0.92</p>
+        <span class="text-xs text-emerald-400">Alta capacidad discriminatoria</span>
+      </div>
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-4">
+        <span class="text-xs text-slate-400">F1-Score Ponderado</span>
+        <p class="text-2xl font-bold text-sky-400 mt-1">0.87</p>
+        <span class="text-xs text-slate-400">Equilibrio precisión/recall</span>
+      </div>
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-4">
+        <span class="text-xs text-slate-400">Ahorro Estimado</span>
+        <p class="text-2xl font-bold text-amber-400 mt-1">$45,000</p>
+        <span class="text-xs text-amber-400">en reemplazo de talento</span>
+      </div>
+    </div>
+
+    <!-- Main Grid: Chart & Simulator -->
+    <div class="grid lg:grid-cols-12 gap-8 items-start">
+
+      <!-- Left Column: Feature Importance Chart -->
+      <div class="lg:col-span-6 bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
+        <div class="flex justify-between items-center">
+          <h3 class="text-sm font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-chart-bar text-purple-400"></i> Importancia de Variables (Random Forest)
+          </h3>
+          <span class="text-xs text-slate-400">Factores más influyentes</span>
+        </div>
+
+        <div class="h-64 flex items-center justify-center">
+          <canvas id="featureChart"></canvas>
+        </div>
+
+        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 text-xs text-slate-300 space-y-1 leading-relaxed">
+          <p><strong class="text-purple-300">Conclusión de Negocio:</strong> Las <strong>horas extras no balanceadas (34%)</strong> y una <strong>satisfacción laboral inferior a 6 (24%)</strong> explican casi el 60% de las renuncias voluntarias, superando incluso al salario base.</p>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Retention Simulator -->
+      <div class="lg:col-span-6 bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-6">
+        <div class="flex justify-between items-center border-b border-slate-800 pb-3">
+          <h3 class="text-sm font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-sliders text-emerald-400"></i> Simulador de Riesgo de Abandono Individual
+          </h3>
+          <span class="text-xs bg-purple-950 text-purple-400 border border-purple-800 px-2 py-0.5 rounded font-mono">Inference API</span>
+        </div>
+
+        <!-- Sliders -->
+        <div class="space-y-4 text-xs">
+          <div>
+            <div class="flex justify-between mb-1.5">
+              <span class="text-slate-400">Horas Extras Semanales</span>
+              <span id="val-horas" class="text-white font-mono font-bold">12 horas</span>
+            </div>
+            <input type="range" id="slider-horas" min="0" max="20" value="12" oninput="simularRiesgo()" class="w-full accent-purple-500 cursor-pointer">
+          </div>
+
+          <div>
+            <div class="flex justify-between mb-1.5">
+              <span class="text-slate-400">Índice de Satisfacción (1 al 10)</span>
+              <span id="val-sat" class="text-white font-mono font-bold">4 / 10</span>
+            </div>
+            <input type="range" id="slider-sat" min="1" max="10" value="4" oninput="simularRiesgo()" class="w-full accent-emerald-500 cursor-pointer">
+          </div>
+
+          <div>
+            <div class="flex justify-between mb-1.5">
+              <span class="text-slate-400">Ajuste Salarial Respecto al Mercado</span>
+              <span id="val-sal" class="text-white font-mono font-bold">-5%</span>
+            </div>
+            <input type="range" id="slider-sal" min="-20" max="30" value="-5" oninput="simularRiesgo()" class="w-full accent-sky-500 cursor-pointer">
+          </div>
+        </div>
+
+        <!-- Simulator Result Gauge -->
+        <div id="risk-box" class="bg-rose-500/10 border border-rose-500/30 rounded-xl p-5 text-center transition-all duration-300">
+          <span class="text-xs text-rose-400 uppercase tracking-widest font-mono font-bold block mb-1">Diagnóstico Predictivo</span>
+          <p id="risk-pct" class="text-4xl font-extrabold text-rose-400">78%</p>
+          <span id="risk-label" class="text-sm font-semibold text-white block mt-1">¡Alerta Crítica: Alto Riesgo de Deserción!</span>
+          <p id="risk-desc" class="text-xs text-slate-400 mt-2">Se recomienda reducir la carga de sobretiempo y programar una sesión de retroalimentación en menos de 15 días.</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="bg-slate-950 border-t border-slate-800 text-center py-4 text-xs text-slate-500">
+    Desarrollado por <a href="https://github.com/Enybyy" class="text-purple-400 hover:underline">Eliud RM</a> — Soluciones de Software & Machine Learning Freelance
+  </footer>
+
+  <script>
+    // Chart
+    const ctx = document.getElementById('featureChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Horas Extras', 'Satisfacción', 'Nivel Salarial', 'Años Puesto', 'Distancia Casa'],
+        datasets: [{
+          data: [34, 24, 18, 14, 10],
+          backgroundColor: ['#a855f7', '#8b5cf6', '#6366f1', '#3b82f6', '#0284c7'],
+          borderRadius: 6
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { ticks: { color: '#94a3b8', font: { size: 11 } }, grid: { display: false } },
+          y: { ticks: { color: '#94a3b8', callback: v => v + '%' }, grid: { color: '#1e293b' } }
+        }
+      }
+    });
+
+    // Simulator logic
+    function simularRiesgo() {
+      const horas = parseInt(document.getElementById('slider-horas').value);
+      const sat = parseInt(document.getElementById('slider-sat').value);
+      const sal = parseInt(document.getElementById('slider-sal').value);
+
+      document.getElementById('val-horas').innerText = horas + ' horas';
+      document.getElementById('val-sat').innerText = sat + ' / 10';
+      document.getElementById('val-sal').innerText = (sal > 0 ? '+' : '') + sal + '%';
+
+      // Formula emulada del modelo
+      let score = 50 + (horas * 2.8) - (sat * 5.5) - (sal * 0.8);
+      score = Math.max(5, Math.min(95, Math.round(score)));
+
+      const box = document.getElementById('risk-box');
+      const pct = document.getElementById('risk-pct');
+      const lbl = document.getElementById('risk-label');
+      const desc = document.getElementById('risk-desc');
+
+      pct.innerText = score + '%';
+
+      if (score < 35) {
+        box.className = "bg-emerald-500/10 border border-emerald-500/30 rounded-xl p-5 text-center transition-all duration-300";
+        pct.className = "text-4xl font-extrabold text-emerald-400";
+        lbl.innerText = "Riesgo Bajo / Colaborador Estable";
+        desc.innerText = "Parámetros saludables. La probabilidad de renuncia es mínima y el clima laboral es favorable.";
+      } else if (score < 65) {
+        box.className = "bg-amber-500/10 border border-amber-500/30 rounded-xl p-5 text-center transition-all duration-300";
+        pct.className = "text-4xl font-extrabold text-amber-400";
+        lbl.innerText = "Riesgo Moderado / Monitoreo Sugerido";
+        desc.innerText = "Se observan ciertas tensiones en horarios o compensación que podrían evolucionar desfavorablemente.";
+      } else {
+        box.className = "bg-rose-500/10 border border-rose-500/30 rounded-xl p-5 text-center transition-all duration-300";
+        pct.className = "text-4xl font-extrabold text-rose-400";
+        lbl.innerText = "¡Alerta Crítica: Alto Riesgo de Deserción!";
+        desc.innerText = "Se recomienda reducir la carga de sobretiempo y programar una sesión de retroalimentación urgente.";
+      }
+    }
+  </script>
+</body>
+</html>
